@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 def log_request(phone_number):
 
-    url = urllib.urlparse(os.environ.get('REDISCLOUD_URL'))
+    url = urllib.parse.urlparse(os.environ.get('REDISCLOUD_URL'))
     r = redis.Redis(host=url.hostname, port=url.port, password=url.password)
 
     maxPerDay = os.getenv('MAX_PER_DAY', 20)
