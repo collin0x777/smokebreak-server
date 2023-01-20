@@ -1,0 +1,8 @@
+name: smokebreak-server
+dependencies:
+  - python
+  - pip:
+    - flask
+    - twilio
+    - redis
+    - gunicorn
