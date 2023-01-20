@@ -15,10 +15,10 @@ def log_request(phone_number):
 
     log_script = """
     local phoneKey = KEYS[1]
-    local maxPerDay = ARGV[1]
+    local maxPerDay = tonumber(ARGV[1])
 
     if redis.call('exists', phoneKey) == 1 then
-        if tonumber(redis.call('get', phoneKey)) > maxPerDay then
+        if tonumber(redis.call('get', phoneKey)) >= maxPerDay then
             return 0
         end
         redis.call('incr', phoneKey)
